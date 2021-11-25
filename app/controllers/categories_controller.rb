@@ -51,7 +51,7 @@ def cat_params
 end
 def find_category id
     Category.left_outer_joins(:todos)
-                        .select('categories.id, categories.title, COUNT(todos.id) AS todos_count')
+         .select('categories.id, categories.title, todos.id AS todos')
                         .where(id: id)
                         .group('categories.id, categories.title')
 end
