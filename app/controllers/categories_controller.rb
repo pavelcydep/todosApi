@@ -1,4 +1,4 @@
-class d < ApplicationController
+class CategoriesController < ApplicationController
     skip_before_action :verify_authenticity_token
     # GET /categories/
     def index
