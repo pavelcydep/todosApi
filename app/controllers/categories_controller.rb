@@ -1,16 +1,13 @@
-class CategoriesController < ApplicationController
+class d < ApplicationController
     skip_before_action :verify_authenticity_token
     def index
         categories = Category.left_outer_joins(:todos)
-                            .select('categories.id, categories.title, {todos.id,todos.text,todos.isCompleted}')
+                            .select('categories.id, categories.title, todos.id AS todos')
                             .group('categories.id, categories.title')
         render json: categories, status: :ok
     end
 
-   
-
-
- # DELETE categories/:id
+   # DELETE categories/:id
  def destroy
     category = Category.find(params[:id])
     category.destroy
