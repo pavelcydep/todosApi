@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     skip_before_action :verify_authenticity_token
-    # GET /categories/
+    
     def index
         categories = Category.left_outer_joins(:todos)
                             .select('categories.id, categories.title, todos.id AS todos')
