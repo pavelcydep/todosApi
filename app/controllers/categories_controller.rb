@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
     def index
         categories = Category.left_outer_joins(:todos)
                             .select('categories.id, categories.title, category_id AS todos')
-                            .group('categories.id, categories.title')
+                           
         render json: categories, status: :ok
     end
 
