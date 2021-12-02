@@ -18,5 +18,13 @@ module TodosApi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+
+    config.api_only = true
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => %w{GET POST PUT OPTIONS}.join(",")
+    }
   end
 end
+
